@@ -10,3 +10,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("Rgraphviz")
 library(Rgraphviz)
+
+#有些包已经安装了但有时候library会失败，如dplyr
+#这时候可以进入默认工作目录-R\win-library\3.6（版本号），
+#把原本的dplyr包删除，重新安装

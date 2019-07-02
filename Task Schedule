@@ -1,0 +1,18 @@
+#在进行一个命令的时候运行其他函数
+library(tcltk2)
+test <- function () cat("==== Hello from Tcl! ====\n")
+tclTaskSchedule(1000, test())  #延迟多少毫秒运行
+
+test2 <- function () cat("==== Hello again from Tcl! ====\n")
+tclTaskSchedule(1000, test2(), id = "test5", redo = 10) #重复运行5次
+
+test3 <- function (txt) cat(txt, "\n")
+msg <- "==== First message ===="
+tclTaskSchedule(1000, test3(msg), id = "test3", redo = TRUE) #无限运行
+msg <- "==== Second message ====" #不用等结束可以直接运行下一行命令
+tclTaskGet() #正在运行的id名
+tclTaskGet("test2") #判断是否在运行
+tclAfterInfo() #总共进行到第几个任务
+tclTaskChange("test3", wait = 1000, redo = 1) #改变正在进行的任务
+tclTaskRun("test3") #马上运行正在进行的任务
+tclTaskDelete(NULL) #删除所有正在运行的任务

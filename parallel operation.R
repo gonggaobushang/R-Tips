@@ -1,4 +1,3 @@
-setwd("C:\\Users\\Administrator.000\\Desktop")
 rm(list = ls())
 library(snowfall)
 library(parallel) 

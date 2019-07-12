@@ -1,3 +1,6 @@
+chooseCRANmirror()
+#选择中国的镜像网站下载包
+
 #有些包不翻墙很难安装
 #又有些在cran上已经不存在的包如Rgraphviz，常规方式安装不了
 

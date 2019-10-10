@@ -16,3 +16,15 @@ tclAfterInfo() #总共进行到第几个任务
 tclTaskChange("test3", wait = 1000, redo = 1) #改变正在进行的任务
 tclTaskRun("test3") #马上运行正在进行的任务
 tclTaskDelete(NULL) #删除所有正在运行的任务
+
+
+#later包
+f = function() {
+  if (as.POSIXlt(Sys.time())$sec>30) {
+    print(Sys.time())
+  }
+  later::later(f, 0.01)
+}
+f()
+
+rm(f)
